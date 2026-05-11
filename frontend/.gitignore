@@ -1,0 +1,45 @@
+# Angular
+/dist
+/node_modules
+/src/**/*.js
+/src/**/*.js.map
+/src/**/*.d.ts
+
+# IDEs and Editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio Code
+.vscode/
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+.env.local
+.env.*.local
+
+# Environment
+.env
+.env.development
+.env.production
+.env.test

@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   NexGen Wealth Ledger — Global Styles (Emerald Dark Mode)
+   ============================================================ */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+  color: #f8fafc;
+  background-color: #0f172a;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a { color: #10b981; text-decoration: none; }
+a:hover { color: #34d399; text-decoration: underline; }
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.page-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Material Card — sharp edges, neon borders
+   ============================================================ */
+.mat-mdc-card {
+  border-radius: 0px !important;
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155;
+  transition: transform .25s cubic-bezier(.4,0,.2,1),
+              box-shadow .25s cubic-bezier(.4,0,.2,1),
+              border-color .25s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .3) !important;
+}
+.mat-mdc-card:hover {
+  transform: translateY(-2px);
+  border-color: #10b981;
+  box-shadow: 0 0 15px rgba(16, 185, 129, .15) !important;
+}
+
+/* ============================================================
+   Material Table polish
+   ============================================================ */
+.mat-mdc-table { width: 100%; background: transparent !important; color: #f8fafc !important; }
+.mat-mdc-header-row { background: #0f172a !important; border-bottom: 2px solid #10b981 !important; }
+.mat-mdc-header-cell {
+  font-weight: 600 !important;
+  color: #10b981 !important;
+  font-size: .85rem !important;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  border-bottom: none !important;
+}
+.mat-mdc-cell { color: #cbd5e1 !important; border-bottom: 1px solid #334155 !important; }
+.mat-mdc-row {
+  transition: background-color .18s;
+}
+.mat-mdc-row:hover {
+  background: rgba(16, 185, 129, .08) !important;
+}
+
+/* ============================================================
+   Snackbar toasts
+   ============================================================ */
+.toast-success .mdc-snackbar__surface { background-color: #10b981 !important; border-radius: 0; }
+.toast-error   .mdc-snackbar__surface { background-color: #ef4444 !important; border-radius: 0; }
+.toast-info    .mdc-snackbar__surface { background-color: #3b82f6 !important; border-radius: 0; }
+.toast-success .mdc-snackbar__label,
+.toast-error   .mdc-snackbar__label,
+.toast-info    .mdc-snackbar__label { color: #f8fafc !important; font-family: 'Outfit'; }
+
+/* ============================================================
+   Buttons — press scale & sharp edges
+   ============================================================ */
+.mat-mdc-button, .mat-mdc-raised-button, .mat-mdc-flat-button, .mat-mdc-stroked-button {
+  border-radius: 0px !important;
+  transition: transform .12s ease, box-shadow .2s ease, background-color .2s;
+  font-family: 'Outfit', sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.mat-mdc-button:active, .mat-mdc-raised-button:active,
+.mat-mdc-flat-button:active, .mat-mdc-stroked-button:active {
+  transform: scale(.96);
+}
+
+/* Primary Button Styling */
+.mat-primary {
+  background-color: #10b981 !important;
+  color: #020617 !important;
+}
+.mat-primary:hover {
+  background-color: #34d399 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+/* ============================================================
+   Chat bubbles
+   ============================================================ */
+.chat-bubble-user {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #f8fafc;
+  border-radius: 0px 12px 12px 12px;
+  padding: 10px 16px;
+  max-width: 75%;
+  margin-left: auto;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, .25);
+  word-break: break-word;
+}
+.chat-bubble-assistant {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 12px 12px 12px 0px;
+  padding: 10px 16px;
+  max-width: 75%;
+  margin-right: auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+  border: 1px solid #334155;
+  word-break: break-word;
+}
+.chat-bubble-error {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #fca5a5 !important;
+  border: 1px solid #ef4444 !important;
+}
+.chat-messages {
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animated typing dots */
+.typing-dots { display:inline-flex; gap:4px; }
+.typing-dots span {
+  width: 7px; height: 7px; border-radius: 0%;
+  background: #10b981; display: inline-block;
+  animation: dot-bounce 1.2s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: .15s; }
+.typing-dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ============================================================
+   Amount coloring
+   ============================================================ */
+.amount-credit { color: #10b981; font-weight: 600; text-shadow: 0 0 5px rgba(16, 185, 129, 0.3); }
+.amount-debit  { color: #f43f5e; font-weight: 600; }
+
+/* ============================================================
+   Empty state block
+   ============================================================ */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+  min-height: 180px;
+}
+.empty-state mat-icon {
+  font-size: 64px !important;
+  width: 64px !important;
+  height: 64px !important;
+  color: #334155;
+  margin-bottom: 12px;
+}
+.empty-state .empty-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.empty-state .empty-subtitle {
+  font-size: .85rem;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   Auth pages — full-bleed gradient background
+   ============================================================ */
+.auth-bg {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, .1), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(52, 211, 153, .05), transparent 50%),
+              linear-gradient(135deg, #020617 0%, #0f172a 100%);
+}
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 41, 59, .9) !important;
+  border: 1px solid #10b981;
+}
+
+/* ============================================================
+   KPI Cards
+   ============================================================ */
+.kpi-card { text-align: center; padding: 12px; overflow: hidden; position: relative; border-left: 3px solid #10b981; }
+.kpi-icon {
+  width: 56px; height: 56px; border-radius: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px; color: #020617;
+  background-color: #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, .2);
+}
+.kpi-icon mat-icon { font-size: 28px; width: 28px; height: 28px; }
+.kpi-value { font-size: 2rem; font-weight: 700; color: #f8fafc; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi-label { font-size: .85rem; color: #94a3b8; margin-top: 6px; letter-spacing: .05em; text-transform: uppercase; }
+
+/* Page titles */
+.page-title {
+  margin: 0 0 24px 0;
+  color: #10b981;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+}
+
+/* Suggestion chip in chatbot */
+.suggestion-chip {
+  background: #1e293b;
+  border: 1px solid #10b981;
+  color: #34d399;
+  padding: 8px 14px;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: .88rem;
+  transition: all .2s;
+}
+.suggestion-chip:hover {
+  background: #10b981;
+  color: #020617;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, .25);
+}
+
+/* Chart card min-height */
+.chart-card {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+.chart-card mat-card-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toolbar adjustments for dark mode */
+.mat-toolbar.mat-primary {
+  background-color: #0f172a !important;
+  color: #10b981 !important;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Form fields */
+.mat-mdc-text-field-wrapper {
+  background-color: #0f172a !important;
+}
+.mat-mdc-input-element {
+  color: #f8fafc !important;
+}
+.mdc-floating-label {
+  color: #94a3b8 !important;
+}
